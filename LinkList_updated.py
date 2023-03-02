@@ -32,6 +32,19 @@ class LL:
         self.head = node
         self.n+=1
         return True
+    
+    def append(self,value):
+        node = Node(value)
+        if self.head != None:
+            travel=self.head
+            while travel.next != None:
+                travel=travel.next
+            travel.next=node
+            self.n+=1
+            return True
+        self.head=node
+        self.n+=1
+        return True
 
 l=LL()
 # l.insert_start(20)
@@ -43,3 +56,8 @@ l=LL()
 print(l)
 
 print(len(l))
+
+l.append("last")
+# l.append("hello")
+
+print(l)

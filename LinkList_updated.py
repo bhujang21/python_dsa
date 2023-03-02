@@ -32,6 +32,22 @@ class LL:
         self.head = node
         self.n+=1
         return True
+
+    def insert(self,pos,value):
+        node=Node(value)
+        if (self.head != None) and (pos < self.n):
+            travle=self.head
+            temp=0
+            while (travle.next != None) and (temp<pos-1):
+                print(travle.data)
+                travle=travle.next
+                temp+=1
+            node.next=travle.next
+            travle.next=node
+            self.n+=1
+            return True
+        self.append(value)
+        return True        
     
     def append(self,value):
         node = Node(value)
@@ -55,9 +71,9 @@ l=LL()
 # l.insert_start(10)
 print(l)
 
-print(len(l))
+# print(len(l))
 
-l.append("last")
+l.insert(0,"inserted")
 # l.append("hello")
 
 print(l)

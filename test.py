@@ -156,11 +156,13 @@ for i in x:
 # l.append(2)
 
 
-print(l)
-# l.pop()
 # print(l)
-min(l)
+# # l.pop()
+# # print(l)
+# min(l)
 # l.append(3)
 # l.append("hello")
 # # l.index(2)
 # print(l)de
+for i in range(1,2):
+    print("i",i)

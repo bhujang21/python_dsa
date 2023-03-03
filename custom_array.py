@@ -10,6 +10,9 @@ class my_list:
     def __create_arr(self,size):
         return (size*ctypes.py_object)()
 
+    def __get_len(self):
+        return self.elements
+
     def __resize_arr(self):
         self.size+=10
         arr=self.__create_arr(self.size+10)
@@ -181,12 +184,24 @@ class my_list:
                     temp=j
             self.arr[i],self.arr[temp]=self.arr[temp],self.arr[i]
         return True
+
+    def reverse(self,start=0,end=1):
+        end=self.elements-end
+        if self.elements:
+            if start < end:
+                self.arr[start],self.arr[end]=self.arr[end],self.arr[start]
+                start+=1
+                end=start+1
+                return self.reverse(start,end)
+            return True
+        raise ValueError("my_list.reverse() my_list should not be empty")
+
     
   
 
 
 l=my_list()
-x=[2,0,3,1,-1,4,5]
+x=list(range(101))
 for i in x:
     l.append(i)
 # l.append(1)
@@ -197,12 +212,11 @@ for i in x:
 print(l)
 # l.pop()
 # print(l)
-l.sort()
+# l.sort()
 # l.append(3)
 # l.append("hello")
 # # l.index(2)
 # print(l)de
+l.reverse()
 print(l)
 
-for i in dir(x):
-    print(i)

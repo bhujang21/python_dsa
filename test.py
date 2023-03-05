@@ -164,5 +164,7 @@ for i in x:
 # l.append("hello")
 # # l.index(2)
 # print(l)de
-for i in range(1,2):
-    print("i",i)
+
+
+for i in range(2):
+    print(i)

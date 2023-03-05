@@ -165,6 +165,6 @@ for i in x:
 # # l.index(2)
 # print(l)de
 
+my_list=[]
 
-for i in range(2):
-    print(i)
+my_list.insert(2,100)

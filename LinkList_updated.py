@@ -377,6 +377,18 @@ class my_ll:
             raise ValueError("Value not in link-list")
         raise ValueError("Value not in link-list")
 
+    # def add_after(self,value,new_value):
+    #     node=Node(new_value)
+    #     travle=self.head
+    #     while travle:
+    #         if travle.data == value:
+    #             node.next=travle.next
+    #             travle.next=node
+    #             self.n+=1
+    #             return True
+    #         travle=travle.next
+    #     raise ValueError("Value is not in link-list")
+
     def clear(self):
         """clear the link-list"""
         self.head=None
@@ -461,5 +473,6 @@ a.append('append')
 # # print(a.n)
 a.insert_r(4,"OO")
 print(a)
-# a.add_left(30,100)
+a.add_after(1,100)
 # a.insert(0,20)
+print(a)

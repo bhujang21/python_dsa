@@ -193,7 +193,7 @@ class my_ll:
             result=""
             travel=self.head
             while travel:
-                result+=f"{travel.data}->"
+                result+=f"{travel.data} -> "
                 travel=travel.next
             result+="None"
             return result
@@ -460,19 +460,121 @@ class my_ll:
         self.index(value)
         return True 
 
+    #Question sections
+    #find the maximun value from the link list
+
+    def max(self):
+        if self.head:
+            i_max=self.head.data
+            travle=self.head
+            while travle:
+                if type(travle.data) != int and self.n>1: 
+                    raise TypeError("'>' not supported between instances of 'str' and 'int'")
+                if travle.data > i_max:
+                    i_max=travle.data
+                travle=travle.next
+            return i_max
+        raise ValueError("LinkList is empty")
+
+    #find min value from LinkList
+    def min(self):
+        if self.head:
+            i_min=self.head.data
+            travle=self.head
+            while travle:
+                if type(travle.data) != int and self.n > 1:
+                    raise TypeError("'>' not supported between instances of 'str' and 'int'")
+                if travle.data < i_min:
+                    i_min=travle.data
+                travle=travle.next
+            return i_min
+        raise ValueError("LinList is empty")
+
+    #find the maximum value and update it with new value
+    #BY naive approch
+    """
+    def max_update(self,value):
+        if self.head:
+            i_max=self.head.data
+            travle=self.head
+            while travle:
+                if type(travle.data) != int and self.n>1:
+                    raise TypeError("'>' not supported between instances of 'str' and 'int'")
+                if travle.data > i_max:
+                    i_max=travle.data
+                travle=travle.next
+            
+            #code for updating the max value with given value
+            travle=self.head
+            while travle:
+                if travle.data == i_max:
+                    travle.data=value
+                    return True
+                travle=travle.next
+            return True
+        raise ValueError("LinkList is Empty")"""
+
+    def max_update(self,value):
+        i_max=self.max()
+        travle=self.head
+        while travle:
+            if travle.data == i_max:
+                travle.data=value
+                return True
+            travle=travle.next
+        return True
+    
+    def min_update(self,value):
+        i_min=self.min()
+        travle=self.head
+        while travle:
+            if travle.data == i_min:
+                travle.data=value
+                return True
+            travle=travle.next
+        return True
+        
+    def odd_data(self):
+        """printing data from linklist which is on ODD
+        location"""
+        if self.head:
+            travle = self.head
+            for i in range(self.n):
+                if i%2 == 1:
+                    print(travle.data,end=" -> ")
+                travle=travle.next
+            return True
+        raise ValueError("LinkList is empty")
+
+                    
+
 
 
         
     
 a=my_ll()
 
-a.insert_head(20)
+# a.insert_head('200')
+#a.insert_head("bhujang")
+a.insert_head(100)
+a.insert_head(90)
+a.insert_head(80)
+a.insert_head(70)
+a.insert_head(60)
+a.insert_head(50)
+a.insert_head(40)
 a.insert_head(30)
+a.insert_head(20)
 a.insert_head(10)
-a.append('append')
+a.insert_head(00)
+# a.append('append')
 # # print(a.n)
-a.insert_r(4,"OO")
-print(a)
-a.add_after(1,100)
+# a.insert_r(4,"OO")
+# print(a)
+# a.add_after(30,100)
 # a.insert(0,20)
 print(a)
+
+# print(a.min())
+a.odd_data()
+#

@@ -165,6 +165,10 @@ for i in x:
 # # l.index(2)
 # print(l)de
 
-my_list=[]
+my_list=["string","stringa"]
 
-my_list.insert(2,100)
+print(max(my_list))
+
+for i in range(11):
+    if i%2 ==1:
+        print(i)

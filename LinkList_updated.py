@@ -538,6 +538,9 @@ class my_ll:
         """printing data from linklist which is on ODD
         location"""
         if self.head:
+            if self.n<2:
+                print("no data on odd location")
+                return None
             travle = self.head
             for i in range(self.n):
                 if i%2 == 1:
@@ -545,6 +548,18 @@ class my_ll:
                 travle=travle.next
             return True
         raise ValueError("LinkList is empty")
+    
+    def even_data(self):
+        """getting data from even location"""
+        if self.head:
+            travle=self.head
+            for i in range(self.n):
+                if i%2 ==0:
+                    print(travle.data,end=" -> ")
+                travle=travle.next
+            return True
+        raise ValueError("LinList is empty")
+
 
                     
 
@@ -573,8 +588,8 @@ a.insert_head(00)
 # print(a)
 # a.add_after(30,100)
 # a.insert(0,20)
-print(a)
+# print(a)
 
 # print(a.min())
-a.odd_data()
+a.even_data()
 #

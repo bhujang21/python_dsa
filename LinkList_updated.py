@@ -558,7 +558,19 @@ class my_ll:
                     print(travle.data,end=" -> ")
                 travle=travle.next
             return True
-        raise ValueError("LinList is empty")
+        raise ValueError("LinkList is empty")
+    
+    def reverse(self):
+        if self.head:
+            obj=my_ll()
+            travle=self.head
+            while travle:
+                obj.insert_head(travle.data)
+                travle=travle.next
+            self.head=obj.head
+            return True
+        raise ValueError("LinkList is Empty")
+
 
 
                     
@@ -573,15 +585,15 @@ a=my_ll()
 #a.insert_head("bhujang")
 a.insert_head(100)
 a.insert_head(90)
-a.insert_head(80)
-a.insert_head(70)
-a.insert_head(60)
-a.insert_head(50)
-a.insert_head(40)
-a.insert_head(30)
-a.insert_head(20)
-a.insert_head(10)
-a.insert_head(00)
+# a.insert_head(80)
+# a.insert_head(70)
+# a.insert_head(60)
+# a.insert_head(50)
+# a.insert_head(40)
+# a.insert_head(30)
+# a.insert_head(20)
+# a.insert_head(10)
+# a.insert_head(00)
 # a.append('append')
 # # print(a.n)
 # a.insert_r(4,"OO")
@@ -589,7 +601,8 @@ a.insert_head(00)
 # a.add_after(30,100)
 # a.insert(0,20)
 # print(a)
-
+print(a)
 # print(a.min())
-a.even_data()
+a.reverse()
+print(a)
 #

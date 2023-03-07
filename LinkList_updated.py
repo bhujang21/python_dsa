@@ -260,6 +260,17 @@ class my_ll:
                 travle=travle.next
             return -1
         return -1   
+    def travle(self):
+        if self.head:
+            travle=self.head
+            result=""
+            while travle:
+                result+=travle.data
+                travle=travle.next
+            print(result)
+        else:
+            print("None LL is empty")
+
     def index(self,value):
         travle=self.head
         pos=0
@@ -598,6 +609,26 @@ class my_ll:
             self.head=a
             return True
         raise ValueError("LinkList is Empty")
+    
+    def magic_change(self):
+        if self.head:
+            travle=self.head
+            while travle:
+                if travle.data == '/' or travle.data == '*':
+                    travle.data=" "
+                    if travle.next and (travle.next.data == '*' or travle.next.data == '/') and travle.next.next:
+                        travle.next.next.data=travle.next.next.data.upper()
+
+                        travle.next=travle.next.next
+                        travle=travle.next
+                        
+                    else:
+                        travle=travle.next
+                else:
+                    travle=travle.next
+            return True
+        raise ValueError("LinkList is Empty")
+    
 
 
 
@@ -610,6 +641,55 @@ class my_ll:
     
 a=my_ll()
 
+# a.append('m')
+# a.append('b')
+a.append('*')
+# a.append('n')
+# a.append('a')
+# a.append('m')
+# a.append('e')
+a.append('/')
+a.append('a')
+a.append('n')
+
+a.append('*')
+a.append('/')
+a.append('a')
+a.append('p')
+a.append('p')
+a.append('l')
+a.append('e')
+a.append('*')
+a.append('a')
+a.append('/')
+a.append('d')
+a.append('a')
+a.append('y')
+a.append('*')
+a.append('*')
+
+a.append('k')
+a.append('e')
+a.append('e')
+a.append('p')
+a.append('s')
+a.append('/')
+a.append('*')
+a.append('a')
+a.append('/')
+a.append('/')
+a.append('d')
+a.append('o')
+a.append('c')
+a.append('t')
+a.append('o')
+a.append('r')
+a.append('*')
+a.append('A')
+a.append('w')
+a.append('a')
+a.append('y')
+a.travle()
 # a.insert_head('200')
 # a.insert_head("bhujang")
 # a.insert_head(100)
@@ -617,8 +697,8 @@ a=my_ll()
 # a.insert_head(80)
 # a.insert_head(70)
 # a.insert_head(60)
-a.insert_head(5)
-a.insert_head(4)
+# a.insert_head(5)
+# a.insert_head(4)
 # a.insert_head(3)
 # a.insert_head(2)
 # a.insert_head(1)
@@ -630,8 +710,9 @@ a.insert_head(4)
 # a.add_after(30,100)
 # a.insert(0,20)
 # print(a)
-print(a)
-# print(a.min())
-a.reverse_inplace()
-print(a)
-#
+# print(a)
+# # print(a.min())
+# a.reverse_inplace()
+# print(a)
+a.magic_change()
+a.travle()

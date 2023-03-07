@@ -559,8 +559,22 @@ class my_ll:
                 travle=travle.next
             return True
         raise ValueError("LinkList is empty")
-    
-    def reverse(self):
+
+    def odd_sum(self):
+        if self.head:
+            travle=self.head
+            counter=0
+            index=0
+            while travle:
+                if index %2 ==1:
+                    counter+=travle.data
+                index+=1
+                travle=travle.next
+            return counter
+        raise ValueError("LinkList is empty")
+  
+    def reverse_new(self):
+        """reversing Linklist by using new/creating Linklist"""
         if self.head:
             obj=my_ll()
             travle=self.head
@@ -570,6 +584,21 @@ class my_ll:
             self.head=obj.head
             return True
         raise ValueError("LinkList is Empty")
+
+    def reverse_inplace(self):
+        if self.head:
+            a=self.head
+            b=self.head.next
+            while b:
+                c=b.next
+                b.next=a
+                a=b
+                b=c
+            self.head.next=None
+            self.head=a
+            return True
+        raise ValueError("LinkList is Empty")
+
 
 
 
@@ -582,18 +611,18 @@ class my_ll:
 a=my_ll()
 
 # a.insert_head('200')
-#a.insert_head("bhujang")
-a.insert_head(100)
-a.insert_head(90)
+# a.insert_head("bhujang")
+# a.insert_head(100)
+# a.insert_head(90)
 # a.insert_head(80)
 # a.insert_head(70)
 # a.insert_head(60)
-# a.insert_head(50)
-# a.insert_head(40)
-# a.insert_head(30)
-# a.insert_head(20)
-# a.insert_head(10)
-# a.insert_head(00)
+a.insert_head(5)
+a.insert_head(4)
+# a.insert_head(3)
+# a.insert_head(2)
+# a.insert_head(1)
+# a.insert_head(0)
 # a.append('append')
 # # print(a.n)
 # a.insert_r(4,"OO")
@@ -603,6 +632,6 @@ a.insert_head(90)
 # print(a)
 print(a)
 # print(a.min())
-a.reverse()
+a.reverse_inplace()
 print(a)
 #

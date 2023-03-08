@@ -155,30 +155,6 @@ class LL:
         raise ValueError("LL.pop() Linklist should not be empty")
             
 
-# l=LL()
-# #
-# l.insert_start(10)
-# l.insert_start(20)
-# l.insert_start(30)
-# l.insert_start(40)
-# # l.insert_start(10)
-
-
-# print(len(l))
-
-#
-# l.append("hello")
-
-# print(l)
-
-# l.remove_start()
-
-# print(l)
-
-# l.remove_by_value(40)
-
-# print(l)
-
 class my_ll:
     """this is updated 
     link list class"""
@@ -630,6 +606,7 @@ class my_ll:
         raise ValueError("LinkList is Empty")
 
     def remove_duplicate(self):
+        """remove duplicate from sorted linklist"""
         if self.head:
             travle=self.head
             while travle.next:
@@ -641,6 +618,28 @@ class my_ll:
                     travle=second
             return True
         raise ValueError("LinkList is Empty")
+
+    def sort(self):
+        """sorting linklist"""
+        if self.head:
+            travle=self.head
+            second=travle.next
+            while travle.next:
+                if second:
+                    if travle.data > second.data:
+                        travle.data,second.data=second.data,travle.data
+                        second=second.next
+                        continue
+                    else:
+                        second=second.next
+                        continue
+                else:
+                    # second=travle.next
+                    travle=travle.next
+                    second=travle.next
+
+            return True
+        raise ValueError("Linklist is Empty")
     
 
 
@@ -705,11 +704,12 @@ a=my_ll()
 # a.insert_head(40)
 # a.insert_head(40)
 # a.insert_head(30)
-# a.insert_head(20)
+a.insert_head(10)
 a.insert_head(20)
-# a.insert_head(10)
 a.insert_head(10)
+a.insert_head(30)
 a.insert_head(10)
+a.insert_head(40)
 # a.insert_head(4)
 # a.insert_head(3)
 # a.insert_head(2)
@@ -728,5 +728,5 @@ a.insert_head(10)
 # a.magic_change()
 #a.travle()
 print(a)
-a.remove_duplicate()
+a.sort()
 print(a)

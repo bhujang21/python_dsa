@@ -58,7 +58,7 @@ st.Push(3)
 #st.Pop()
 #st.Pop()
 #st.Peek()
-print(st.size())
+
 
 #st.Print()
         

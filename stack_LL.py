@@ -21,6 +21,8 @@ class Stack:
                 travle=travle.next
             return result
         return "None"
+    def __del__(self):
+        return True
 
     def isempty(self):
         return self.top == None
@@ -63,17 +65,43 @@ class Stack:
             return True
         raise ValueError("StackIsEmpty")
 
+    def travle(self):
+        if self.top:
+            tra=self.top
+            result=''
+            while tra:
+                result+=tra.data
+                tra=tra.next
+            return result
+        return "Stack Empty"
+
+    def string_rev(self,value):
+        obj=Stack()
+        for i in value:
+            obj.push(i)
+        print(obj.travle())
+        del obj
+        return True
+
+
+def string_rev(value):
+    obj=Stack()
+    for i in value:
+        obj.push(i)
+    print(obj.travle())
+    return True
+
+string_rev("bhujang")
 s=Stack()
-s.push(1)
-s.push(2)
-s.push(3)
-s.push(4)
-s.push(5)
-s.push(6)
-print(s)
-s.stack_reverse()
-print(s)
-s.pop()
-s.pop()
-s.pop()
-print(s)
+s.string_rev("hello world")
+# s.push('e')
+# s.push('l')
+# s.push('l')
+# s.push('o')
+#s.push(6)
+#print(s)
+# s.stack_reverse()
+# print(s)
+# s.pop()
+# s.pop()
+# s.pop()

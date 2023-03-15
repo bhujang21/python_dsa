@@ -63,6 +63,15 @@ class Stack:
                 self.arr[i],self.arr[self.n-1-i]=self.arr[self.n-1-i],self.arr[i]
             return True
         raise ValueError("StackIsEmpty")
+    def custom_travle(self):
+        
+        if self.n > 0:
+            result=""
+            for i in range(self.n):
+                result+=self.arr[i]
+            print(result)
+            return True
+        print()
     
     def travle(self):
         if self.n>0:
@@ -88,10 +97,28 @@ def rev_string(string):
         result+=obj.arr[i]
     return result
 
-
-s=Stack()
-
-s.string_rev('hello world')
+def undo_redo(string,pattern):
+    obj=Stack()
+    for i in string:
+        obj.push(i)
+    count=obj.n
+    for i in pattern:
+        if i.lower() == "u":
+            if obj.n != 0:
+                obj.n-=1
+                obj.custom_travle()
+            else:
+                obj.custom_travle()
+        elif i.lower() == 'r':
+            if obj.n<count:
+                obj.n+=1
+                obj.custom_travle()
+            else:
+                obj.custom_travle()
+    return True
+#s=Stack()
+undo_redo("bhujang","uuuuuurrrr")
+#s.string_rev('hello world')
 # s.push('e')
 # s.push('l')
 # s.push('l')
@@ -99,4 +126,4 @@ s.string_rev('hello world')
 
 # print(s)
 
-print(rev_string("bhujangrao"))
+# print(rev_string("bhujangrao"))

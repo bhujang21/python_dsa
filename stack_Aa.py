@@ -5,6 +5,7 @@ class Stack:
         self.length=1
         self.n=0
         self.arr=self.__create_arr(self.length)
+        
 
     def __str__(self):
         result=''
@@ -72,6 +73,21 @@ class Stack:
             print(result)
             return True
         print()
+
+    def undo(self):
+        if self.n!=0:
+            self.n-=1
+            return self.custom_travle()
+        return self.custom_travle()
+
+    def redo(self):
+        try:
+            self.arr[self.n]
+            self.n+=1
+            return self.custom_travle()
+        except:
+            self.custom_travle()
+
     
     def travle(self):
         if self.n>0:
@@ -116,8 +132,8 @@ def undo_redo(string,pattern):
             else:
                 obj.custom_travle()
     return True
-#s=Stack()
-undo_redo("bhujang","uuuuuurrrr")
+s=Stack()
+######undo_redo("bhujang","uur")
 #s.string_rev('hello world')
 # s.push('e')
 # s.push('l')
@@ -127,3 +143,11 @@ undo_redo("bhujang","uuuuuurrrr")
 # print(s)
 
 # print(rev_string("bhujangrao"))
+string="bhujang"
+for i in string:
+    s.push(i)
+print(s.n)
+s.undo()
+s.push("99")
+s.redo()
+print("after one redo",s.n)

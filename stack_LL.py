@@ -11,6 +11,7 @@ class Stack:
 
         self.top=None
         self.n=0
+        self.ref=None
 
     def __str__(self):
         if self.top:
@@ -37,10 +38,10 @@ class Stack:
     def pop(self):
 
         if not self.isempty():
-            #print(self.top.data)
+            value=self.top.data
             self.top=self.top.next
             self.n-=1
-            return True
+            return value
         raise ValueError("StackIsEmpty")
 
     def peak(self):
@@ -64,6 +65,47 @@ class Stack:
             self.top=travle
             return True
         raise ValueError("StackIsEmpty")
+    
+    def custom_travle(self):
+        if self.top:
+            result=""
+            travle=self.top
+            while travle:
+                result=travle.data+result
+                travle=travle.next
+            print(result)
+        print()
+    
+    def undo(self):
+        if self.ref == None:
+            self.ref=Stack()
+        if self.top:
+            self.ref.push(self.pop())
+            return self.custom_travle()
+        return self.custom_travle()
+
+    def redo(self):
+        if self.ref.top:
+            self.push(self.ref.pop())
+            return self.custom_travle()
+        return self.custom_travle()
+
+    def undo_old(self):
+        if self.top:
+            self.ref=self.top
+            self.top=self.top.next
+            self.n-=1
+            return self.custom_travle()
+        return self.custom_travle()
+
+    def redo_old(self):
+        if self.ref:
+            self.ref.next=self.top
+            self.top=self.ref
+            self.n+=1
+            self.ref=None
+            return self.custom_travle()
+        return self.custom_travle()
 
     def travle(self):
         if self.top:
@@ -84,24 +126,26 @@ class Stack:
         return True
 
 
-def string_rev(value):
+"""def string_rev(value):
     obj=Stack()
     for i in value:
         obj.push(i)
     print(obj.travle())
     return True
-
-string_rev("bhujang")
+"""
+# def undo_redo(string,pattern):
+#     obj=Stack()
+#     for i in string:
+#         obj.push(i)
 s=Stack()
-s.string_rev("hello world")
-# s.push('e')
-# s.push('l')
-# s.push('l')
-# s.push('o')
-#s.push(6)
-#print(s)
-# s.stack_reverse()
-# print(s)
-# s.pop()
-# s.pop()
-# s.pop()
+#s.string_rev("hello world")
+string="bhujang"
+for i in string:
+    s.push(i)
+print(s)
+# s.custom_travle()
+s.undo()
+s.undo()
+s.redo()
+s.redo()
+

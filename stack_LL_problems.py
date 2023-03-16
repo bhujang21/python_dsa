@@ -37,4 +37,30 @@ def text_editor(string,pattern):
     return obj.custom_travle()
 
 print(text_editor("bhujang","uuuuuuuuuuuuuu"))
-    
+
+#3 blanced paranthesis or not by using stack
+# "([)]"
+def par_check(pattern):
+    obj=stack.Stack()
+    for i in pattern:
+        if i == "(" or i== "[" or i == "{":
+            obj.push(i)
+        else:
+            try:
+                if obj.peak() == "(" and i ==")":
+                    obj.pop()
+                elif obj.peak() == "[" and i =="]":
+                    obj.pop()
+                elif obj.peak() == "{" and i =="}":
+                    obj.pop()
+            except:
+                print("ptanthesis are not blanced")
+                return True
+    if obj.isempty():
+        print("Pranthesis are balnced")
+    else:
+        print("ptanthesis are not blanced")
+
+    return True
+
+par_check("{[()]}()[]")

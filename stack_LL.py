@@ -47,8 +47,8 @@ class Stack:
     def peak(self):
 
         if not self.isempty():
-            print("Peak is",self.top.data)
-            return True
+            return self.top.data
+            # return True
         raise ValueError("StackIsEmpty")
 
     def stack_reverse(self):

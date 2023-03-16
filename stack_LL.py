@@ -73,8 +73,9 @@ class Stack:
             while travle:
                 result=travle.data+result
                 travle=travle.next
-            print(result)
-        print()
+            return result
+        # print()
+        return ""
     
     def undo(self):
         if self.ref == None:

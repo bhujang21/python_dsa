@@ -137,15 +137,16 @@ class Stack:
 #     obj=Stack()
 #     for i in string:
 #         obj.push(i)
-s=Stack()
-#s.string_rev("hello world")
-string="bhujang"
-for i in string:
-    s.push(i)
-print(s)
-# s.custom_travle()
-s.undo()
-s.undo()
-s.redo()
-s.redo()
+
+# s=Stack()
+
+# string="bhujang"
+# for i in string:
+#     s.push(i)
+# print(s)
+
+# s.undo()
+# s.undo()
+# s.redo()
+# s.redo()
 

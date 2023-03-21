@@ -14,6 +14,7 @@ class Stack:
         self.ref=None
 
     def __str__(self):
+        """string formating of stack object"""
         if self.top:
             result=""
             travle=self.top
@@ -22,13 +23,17 @@ class Stack:
                 travle=travle.next
             return result
         return "None"
+
     def __del__(self):
+        """deletes the stack object"""
         return True
 
     def isempty(self):
+        """check if stack is empty or not"""
         return self.top == None
 
     def push(self,value):
+        """push the data inside stack like from head side"""
         node=Node(value)
         node.next=self.top
         self.top=node
@@ -36,6 +41,7 @@ class Stack:
         return 
 
     def pop(self):
+        """POP out remove most top value from stack if any from stack"""
 
         if not self.isempty():
             value=self.top.data
@@ -45,6 +51,7 @@ class Stack:
         raise ValueError("StackIsEmpty")
 
     def peak(self):
+        """Gives peak of stack if any like most top value from stack it returns"""
 
         if not self.isempty():
             return self.top.data
@@ -52,7 +59,7 @@ class Stack:
         raise ValueError("StackIsEmpty")
 
     def stack_reverse(self):
-        """reversing stack in-place"""
+        """reversing stack in-place same like what we did in Linklist reverse logic"""
 
         if not self.isempty():
             travle=self.top
@@ -67,6 +74,9 @@ class Stack:
         raise ValueError("StackIsEmpty")
     
     def custom_travle(self):
+        """Arranging the data from tail to head order like in reverse format
+        can use this method in another code as well ex 1>2>3>4>5>None after custom_travle
+        ans will be 54321"""
         if self.top:
             result=""
             travle=self.top
@@ -109,6 +119,8 @@ class Stack:
         return self.custom_travle()
 
     def travle(self):
+        """It arrange the a data from head to tail like ex 1>2>3>4>5>None after travle
+        12345 """
         if self.top:
             tra=self.top
             result=''
@@ -119,6 +131,7 @@ class Stack:
         return "Stack Empty"
 
     def string_rev(self,value):
+        """reversing the data which is inside stack just printing data from top to bottom"""
         obj=Stack()
         for i in value:
             obj.push(i)

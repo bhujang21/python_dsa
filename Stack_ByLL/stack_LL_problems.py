@@ -54,7 +54,7 @@ def par_check(pattern):
                 elif obj.peak() == "{" and i =="}":
                     obj.pop()
             except:
-                print("ptanthesis are not blanced")
+                print("pranthesis are not blanced")
                 return True
     if obj.isempty():
         print("Pranthesis are balnced")

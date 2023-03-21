@@ -16,10 +16,12 @@ def check(pattern):
                 elif obj.peak() == '<' and i == '>':
                     obj.pop()
             except:
-                print("parantheses is not balanced")
+                print("parenthesis is not balanced")
                 return True
     if obj.isempty():
-        print("parenthises is balanced")
+        print("parenthesis is balanced")
     else:
-        print("parenthises is not blanced")
+        print("parenthesis is not blanced")
     return True
+
+check("{[][]}()<")

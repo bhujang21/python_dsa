@@ -38,7 +38,7 @@ class Stack:
         node.next=self.top
         self.top=node
         self.n+=1
-        return 
+        return True
 
     def pop(self):
         """POP out remove most top value from stack if any from stack"""
